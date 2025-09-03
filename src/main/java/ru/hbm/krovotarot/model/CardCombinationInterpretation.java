@@ -7,18 +7,18 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 @Getter
 @Setter
-@EqualsAndHashCode(exclude = "card")
+
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "tarot_images")
-public class TarotImage {
+@Document(collection = "сard_combination_interpretations")
+public class CardCombinationInterpretation {
     @Id
-    private String id;
-    private String minioObjectName;
-    private String contentType;
-    private Long fileSize;
-    private String url;
+    private Long id;
+    private String interpretation; // Толкование комбинации карт
 
-    @DocumentReference(lazy = true)
+    @DocumentReference(lazy=true)
     private TarotCard card;
+
+    @DocumentReference(lazy=true)
+    private TarotCard combinationCard;
 }

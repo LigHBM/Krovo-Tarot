@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.hbm.krovotarot.dto.CardTaroInfoDto;
+import ru.hbm.krovotarot.dto.TarotCardFullInfoDto;
+import ru.hbm.krovotarot.dto.TarotCardInfoDto;
 import ru.hbm.krovotarot.dto.PredictionResultDto;
 import ru.hbm.krovotarot.dto.PredictionType;
-import ru.hbm.krovotarot.error.ErrorDto;
+import ru.hbm.krovotarot.exception.ErrorDto;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ public interface TarotController {
             }
     )
     @GetMapping("/cards")
-    List<CardTaroInfoDto> getAllCards();
+    List<TarotCardInfoDto> getAllCards();
 
     @Operation(
             summary = "Получить карту Таро по ID",
@@ -59,7 +60,7 @@ public interface TarotController {
                     @ApiResponse(
                             responseCode = "200",
                             description = "Успешное получение карты Таро",
-                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = CardTaroInfoDto.class))
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = TarotCardFullInfoDto.class))
                     ),
                     @ApiResponse(
                             responseCode = "404",
@@ -74,7 +75,7 @@ public interface TarotController {
             }
     )
     @GetMapping("/cards/{id}")
-    CardTaroInfoDto getCardById(@PathVariable Long id);
+    TarotCardFullInfoDto getCardById(@PathVariable Long id);
 
     @Operation(
             summary = "Получить предсказание по 1 карте Таро",
