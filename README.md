@@ -20,14 +20,14 @@ Web-сервис для гадания на картах Таро с REST API.
 src/
 ├── main/
 │   ├── java/ru/hbm/krovotarot/
-│   │   ├── controller/     # REST контроллеры
-│   │   ├── service/        # Бизнес логика
-│   │   ├── model/          # Модели данных
-│   │   ├── repository/     # Репозитории
-│   │   └── TarotApplication.java  # Главный класс приложения
+│   │   ├── controller/                 # REST контроллеры
+│   │   ├── service/                    # Бизнес логика
+│   │   ├── model/                      # Модели данных
+│   │   ├── repository/                 # Репозитории
+│   │   └── KrovoTarotApplication.java  # Главный класс приложения
 │   └── resources/
-│       ├── application.yml    # Конфигурация
-│       └── db/changelog/      # Liquibase миграции
+│       ├── application.yml             # Конфигурация
+│       └── db/changelog/               # Liquibase миграции
 ```
 
 ## API Endpoints

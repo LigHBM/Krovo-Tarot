@@ -1,5 +1,12 @@
 server:
   port: 8086
+  servlet:
+    context-path: krovotarot
+
+springdoc:
+  swegger-ui:
+    enabled: true
+
 
 spring:
   application:
@@ -7,6 +14,8 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/tarot_db
+      username: ${mongo_username:none}
+      password: ${mongo_password:none}
     jpa:
       hibernate:
         ddl-auto: none
@@ -16,11 +25,17 @@ spring:
           dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
     url: jdbc:postgresql://localhost:5432/tarot_auth
-    username: ${db.username:none}
-    password: ${db.password:none}
+    username: ${pg_username:none}
+    password: ${pg_password:none}
     driver-class-name: org.postgresql.Driver
 
   liquibase:
     enabled: true
     change-log: classpath:db/changelog/db.changelog-master.yaml
+
+minio:
+  endpoint: http://localhost:9100
+  access-key: ${minio_username:none}
+  secret-key: ${minio_password:none}
+  bucket-name: tarot
 
