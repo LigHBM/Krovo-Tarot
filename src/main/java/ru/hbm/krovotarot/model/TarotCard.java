@@ -42,5 +42,9 @@ public class TarotCard {
     public static class CardDescription {
         private String description;
         private String reverseDescription;
+
+        public String descriptionByReversed(boolean isReversed) {
+            return isReversed ? reverseDescription : description;
+        }
     }
 }

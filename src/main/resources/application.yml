@@ -7,7 +7,6 @@ springdoc:
   swegger-ui:
     enabled: true
 
-
 spring:
   application:
    name: KrovoTarot
@@ -39,3 +38,21 @@ minio:
   secret-key: ${minio_password:none}
   bucket-name: tarot
 
+prediction:
+  type: simple
+
+random:
+  service:
+    type: simple
+  simple:
+    algorithm: DRBG
+    personalization-string: "KrovoTarot Random Generator"
+    strength: 256
+    properties:
+      - property:
+          name: securerandom.drbg.config
+          value: HMAC_DRBG, SHA-384
+  site:
+    selected: random-org
+    random-org:
+      api-key: ${random_org_api_key:none}

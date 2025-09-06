@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 public class Constants {
+    public static final Integer SIZE_OF_DECK = 78;
+
     public enum Profiles {
         DEV, PROD;
     }

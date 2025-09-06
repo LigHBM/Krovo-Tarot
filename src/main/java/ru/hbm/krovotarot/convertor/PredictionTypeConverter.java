@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import ru.hbm.krovotarot.dto.PredictionType;
 import ru.hbm.krovotarot.exception.BadParamsException;
-import ru.hbm.krovotarot.exception.BaseException;
 
 @Slf4j
 @Component
@@ -18,7 +17,7 @@ public class PredictionTypeConverter implements Converter<String, PredictionType
                 return null;
             }
 
-            return PredictionType.valueOf(type);
+            return PredictionType.valueOf(type.toUpperCase());
         } catch (Exception e) {
             log.error("Не удалось получить тип предсказания по парметру {}", type, e);
             throw new BadParamsException(String.format("Неизвестный тип предсказания: %s", type));
