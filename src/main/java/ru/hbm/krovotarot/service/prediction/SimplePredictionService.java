@@ -51,7 +51,6 @@ public class SimplePredictionService implements PredictionService {
             case ALL -> buildFullPrediction(card, isReversed);
             case GENERAL -> card.getGeneralMeaning().descriptionByReversed(isReversed);
             case LOVE -> card.getLoveMeaning().descriptionByReversed(isReversed);
-            case QUESTIONS -> card.getQuestionsMeaning().descriptionByReversed(isReversed);
             case DAY -> card.getDayMeaning().descriptionByReversed(isReversed);
         };
     }
@@ -65,10 +64,6 @@ public class SimplePredictionService implements PredictionService {
 
         sb.append("В любовном вопросе:\n");
         sb.append(card.getLoveMeaning().descriptionByReversed(isReversed));
-        sb.append("\n\n");
-
-        sb.append("По заданному вопросу:\n");
-        sb.append(card.getQuestionsMeaning().descriptionByReversed(isReversed));
         sb.append("\n\n");
 
         sb.append("Предсказание на день:\n");

@@ -11,10 +11,6 @@ spring:
   application:
    name: KrovoTarot
   data:
-    mongodb:
-      uri: mongodb://localhost:27017/tarot_db
-      username: ${mongo_username:none}
-      password: ${mongo_password:none}
     jpa:
       hibernate:
         ddl-auto: none
@@ -23,7 +19,7 @@ spring:
         hibernate:
           dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
-    url: jdbc:postgresql://localhost:5432/tarot_auth
+    url: jdbc:postgresql://localhost:5432/krovotarot
     username: ${pg_username:none}
     password: ${pg_password:none}
     driver-class-name: org.postgresql.Driver

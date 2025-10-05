@@ -20,6 +20,8 @@ import static java.security.DrbgParameters.Capability.PR_AND_RESEED;
 @RequiredArgsConstructor
 public class SimpleRandomService implements RandomService {
 
+    private static final int DEFAULT_STRENGTH = 256;
+
     private final SimpleRandomProperties properties;
 
     private SecureRandom secureRandom;
@@ -33,7 +35,7 @@ public class SimpleRandomService implements RandomService {
 
             secureRandom = SecureRandom.getInstance(
                     properties.getAlgorithm(),
-                    DrbgParameters.instantiation(properties.getStrength() == null ? 256 : properties.getStrength(),
+                    DrbgParameters.instantiation(properties.getStrength() == null ? DEFAULT_STRENGTH : properties.getStrength(),
                             PR_AND_RESEED,
                             properties.getPersonalizationString().getBytes(StandardCharsets.UTF_8))
             );

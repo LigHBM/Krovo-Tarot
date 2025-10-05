@@ -10,11 +10,9 @@ public class TarotCardFullInfoDto {
     private Integer sequenceNumber;
     private String generalMeaning;
     private String loveMeaning;
-    private String questionsMeaning;
     private String dayMeaning;
     private String generalMeaningReverse;
     private String loveMeaningReverse;
-    private String questionsMeaningReverse;
     private String dayMeaningReverse;
     private CardType type;
     private String hint;

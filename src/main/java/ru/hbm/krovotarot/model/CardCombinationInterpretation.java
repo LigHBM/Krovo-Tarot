@@ -1,24 +1,31 @@
 package ru.hbm.krovotarot.model;
 
-import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
-
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "сard_combination_interpretations")
+@Entity
+@Table(name = "сard_combination_interpretations")
 public class CardCombinationInterpretation {
     @Id
     private Long id;
+
+    @NotBlank
+    @Column(name = "interpretation", nullable = false, length = 1024)
     private String interpretation; // Толкование комбинации карт
 
-    @DocumentReference(lazy=true)
+    @ManyToOne
+    @JoinColumn(name= "first_card_id", nullable = false, updatable = false)
     private TarotCard card;
 
-    @DocumentReference(lazy=true)
+    @ManyToOne
+    @JoinColumn(name = "second_card_id", nullable = false, updatable = false)
     private TarotCard combinationCard;
 }
